@@ -6,7 +6,7 @@
 
 ## Задачи
 
-1. Стенд развёрнут в Docker на основе репозитория [maxalyapyshev/trino-iceberg-minio](https://github.com/maxalyapyshev/trino-iceberg-minio).
+1. Развернуть стенд в Docker на основе репозитория [maxalyapyshev/trino-iceberg-minio](https://github.com/maxalyapyshev/trino-iceberg-minio).
 
 **Состав:** MinIO (S3-хранилище), mc (инициализация bucket `warehouse`), Iceberg REST Catalog и Trino.
 
@@ -24,10 +24,9 @@ docker compose down && docker compose up -d
 ```
 
 - Образы MinIO и mc собираются из исходников, если локальных образов нет.
-- Параметры заданы в Compose по умолчанию. Чтобы изменить их, скопируйте `.env.example` в `.env` и отредактируйте.
-- Данные MinIO хранятся в томе `minio_data`. Команда `docker compose down -v` удаляет том вместе с данными.
+- Параметры заданы в Compose по умолчанию, чтобы изменить их, скопируйте `.env.example` в `.env` и отредактируйте.
 
-**Ресурсы VPS:** 2 ядра CPU, 6 ГБ памяти, 15 ГБ диска.
+**Оценка ресурсов:** 2 ядра CPU, 6 ГБ памяти, 15 ГБ диска.
 
 2. Подготовить данные TPC-H. Кратко описать таблицы, ключи, связи и гранулярность. Объём данных выбрать самостоятельно.
 3. Спроектировать и реализовать центральный слой Data Vault 2.0.
